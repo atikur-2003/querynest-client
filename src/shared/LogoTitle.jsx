@@ -8,7 +8,7 @@ const LogoTitle = () => {
       <Link to="/">
         <div className="flex items-center">
           <img src={logo} className="w-16 rounded-full" alt="" />
-          <h1 className="text-2xl font-bold text-orange-500">QueryNest</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-orange-500">QueryNest</h1>
         </div>
       </Link>
     </div>
