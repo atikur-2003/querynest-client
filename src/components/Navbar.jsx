@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import LogoTitle from "../shared/LogoTitle";
 import { FaBars } from "react-icons/fa";
 
@@ -37,7 +37,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link className="btn font-semibold rounded-lg border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">Log In</Link>
       </div>
     </div>
   );

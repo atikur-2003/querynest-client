@@ -6,17 +6,17 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    img: "https://images.unsplash.com/photo-1607082349567-2c74b1f7c8dc",
+    img:'https://i.postimg.cc/qq073qM6/banner1.avif',
     heading: "Find Better Alternatives",
     subheading: "Discover community-recommended products tailored to your needs.",
   },
   {
-    img: "https://images.unsplash.com/photo-1617049053182-55982c34a7e3",
+    img: 'https://i.postimg.cc/9MtvMt8T/banner2.jpg',
     heading: "Ask Before You Buy",
     subheading: "Post your product concerns & get real responses from real users.",
   },
   {
-    img: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+    img: "https://i.postimg.cc/c1kFcbnC/banner3.jpg",
     heading: "Community Recommendations",
     subheading: "Browse others’ queries and contribute with better suggestions.",
   },
