@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home";
 import AuthLayout from "../layouts/AuthLayout";
 import Register from "../pages/authPages/Register";
 import Login from "../pages/authPages/Login";
+import PrivateRoute from "./PrivateRoute";
+import MyQueries from "../pages/queryPages/MyQueries";
+import AddQuery from "../pages/queryPages/AddQuery";
 
 export const router = createBrowserRouter([
     {
@@ -14,6 +17,14 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: Home
             },
+            {
+                path: 'my-queries',
+                element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>
+            },
+            {
+                path: 'add-query',
+                element:<PrivateRoute><AddQuery></AddQuery></PrivateRoute>
+            }
         ]
     },
     {

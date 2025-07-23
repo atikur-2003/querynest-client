@@ -35,6 +35,19 @@ const Navbar = () => {
       <li className="text-base font-medium text-orange-500">
         <NavLink to="/">Queries</NavLink>
       </li>
+      {user && (
+        <>
+          <li className="text-base font-medium text-orange-500">
+            <NavLink to="/">Recommendations For Me</NavLink>
+          </li>
+          <li className="text-base font-medium text-orange-500">
+            <NavLink to="/my-queries">My Queries</NavLink>
+          </li>
+          <li className="text-base font-medium text-orange-500">
+            <NavLink to="/">My recommendations</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -66,7 +79,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="User"
-                className="w-10 h-10 rounded-full cursor-pointer"
+                className="w-12 h-12 rounded-full cursor-pointer"
               />
             </Menu.Button>
 
