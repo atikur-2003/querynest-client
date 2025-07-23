@@ -4,8 +4,11 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Loading from "../../components/Loading";
 import { FaArrowLeft } from "react-icons/fa";
 import QueryDetailsCard from "./QueryDetailsCard";
+import RecommendationSection from "./RecommendationSection";
+import useAuth from "../../hooks/useAuth";
 
 const QueryDetails = () => {
+  const { user } = useAuth();
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const [query, setQuery] = useState(null);
@@ -47,6 +50,13 @@ const QueryDetails = () => {
       </button>
 
       <QueryDetailsCard query={query}></QueryDetailsCard>
+      <RecommendationSection
+        query={query}
+        currentUser={{
+          name: user.displayName,
+          email: user.email,
+        }}
+      ></RecommendationSection>
     </div>
   );
 };
