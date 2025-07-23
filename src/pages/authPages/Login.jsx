@@ -3,9 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { FaEyeSlash, FaGoogle, FaRegEye } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "./SocialLogin";
 
-const Login = () => {
-  const { signIn, googleSignIn } = useAuth
+const Signin = () => {
+  const { signIn, } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -40,30 +41,13 @@ const Login = () => {
       });
   };
 
-  const handleGoogleSignin = () => {
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "SignIn successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(`${location.state ? location.state : "/"}`);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
+  
 
   return (
     <div className="py-28 px-3 md:px-0">
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="text-center mt-5">
-          <h1 className="text-2xl font-semibold">Signin your account</h1>
+          <h1 className="text-2xl font-semibold">Log In your account</h1>
         </div>
         <div className="card-body">
           <form onSubmit={handleSignIn} className="fieldset">
@@ -102,9 +86,9 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className="btn border border-[#F26B21]  text-[#F26B21] hover:bg-[#F26B21] hover:text-white mt-4 mb-2"
+              className="btn border border-orange-500  text-orange-500 hover:bg-orange-500 hover:text-white mt-4 mb-2"
             >
-              Signin
+              Log In
             </button>
 
             {error && (
@@ -115,22 +99,16 @@ const Login = () => {
 
             <p className="text-base mt-3">
               Don't have an account ?{" "}
-              <Link to="/register" className="text-[#F26B21] underline">
+              <Link to="/register" className="text-orange-500 underline">
                 Register here
               </Link>
             </p>
           </form>
-          <button
-            onClick={handleGoogleSignin}
-            className="mt-3 btn border border-[#F26B21]  text-[#F26B21] hover:bg-[#F26B21] hover:text-white"
-          >
-            <FaGoogle></FaGoogle>
-            Signin with Google
-          </button>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signin;

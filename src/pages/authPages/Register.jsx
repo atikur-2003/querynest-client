@@ -3,9 +3,10 @@ import { FaEyeSlash, FaGoogle, FaRegEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "./SocialLogin";
 
-const Register = () => {
-  const { createUser, setUser, updateUser, googleSignIn } = useAuth();
+const Signup = () => {
+  const { createUser, setUser, updateUser } = useAuth();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -32,6 +33,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
@@ -52,30 +54,12 @@ const Register = () => {
       });
   };
 
-  const handleGoogleSignin = () => {
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Sign Up successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(`${location.state ? location.state : "/"}`);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
 
   return (
     <div className="hero bg-base-200 min-h-screen py-26">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="text-center mt-5">
-          <h1 className="text-2xl font-semibold">SignUp your account</h1>
+          <h1 className="text-2xl font-semibold">Register your account</h1>
         </div>
         <div className="card-body">
           <form onSubmit={handleSignup} className="fieldset">
@@ -128,29 +112,22 @@ const Register = () => {
               <p className="text-red-400 text-base">{errorMessage}</p>
             )}
 
-            <button className="btn border-[#F26B21]  text-[#F26B21] hover:bg-[#F26B21] hover:text-white mt-4">
-              SignUp
+            <button className="btn border-orange-500  text-orange-500 hover:bg-orange-500 hover:text-white mt-4">
+              Register
             </button>
 
             <p className="text-base mt-3">
               Already have an account ?
-              <Link to="/login" className="text-[#F26B21] underline">
+              <Link to="/login" className="text-orange-500 underline">
                 Login here
               </Link>
             </p>
           </form>
-
-          <button
-            onClick={handleGoogleSignin}
-            className="mt-3 btn border-[#F26B21]  text-[#F26B21] hover:bg-[#F26B21] hover:text-white"
-          >
-            <FaGoogle></FaGoogle>
-            Signin with Google
-          </button>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Signup;
