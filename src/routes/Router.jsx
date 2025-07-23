@@ -7,6 +7,7 @@ import Login from "../pages/authPages/Login";
 import PrivateRoute from "./PrivateRoute";
 import MyQueries from "../pages/queryPages/MyQueries";
 import AddQuery from "../pages/queryPages/AddQuery";
+import QueryDetails from "../pages/queryPages/QueryDetails";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path: 'add-query',
                 element:<PrivateRoute><AddQuery></AddQuery></PrivateRoute>
+            },
+            {
+                path: 'query-details/:id',
+                element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>
             }
         ]
     },
