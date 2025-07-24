@@ -9,8 +9,7 @@ const QueryDetailsCard = ({ query }) => {
     reason,
     userName,
     userEmail,
-
-    timestamp,
+    createdAt,
     recommendationCount,
   } = query;
 
@@ -44,7 +43,7 @@ const QueryDetailsCard = ({ query }) => {
           </p>
           <p>
             <span className="font-medium">Created At:</span>{" "}
-            {new Date(timestamp).toLocaleString()}
+            {new Date(createdAt).toLocaleString()}
           </p>
           <p>
             <span className="font-medium">Recommendations:</span>{" "}

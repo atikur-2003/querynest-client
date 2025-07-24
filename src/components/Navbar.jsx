@@ -41,7 +41,7 @@ const Navbar = () => {
             <NavLink to="/my-queries">My Queries</NavLink>
           </li>
           <li className="text-base font-medium text-orange-500">
-            <NavLink to="/">Recommendations For Me</NavLink>
+            <NavLink to="/recommendation-for-me">Recommendations For Me</NavLink>
           </li>
 
           <li className="text-base font-medium text-orange-500">
@@ -84,8 +84,8 @@ const Navbar = () => {
               />
             </Menu.Button>
 
-            <Menu.Items className="absolute right-0 mt-2 w-60 origin-top-right bg-white border rounded shadow-lg z-50">
-              <div className="px-4 py-2 border-b font-medium text-gray-700">
+            <Menu.Items className="absolute right-0 mt-2 w-60 origin-top-right bg-white border border-orange-500 rounded shadow-lg z-50">
+              <div className="px-4 py-2 border-b border-orange-500 font-medium text-gray-700">
                 {user.displayName}
               </div>
               <Menu.Item>

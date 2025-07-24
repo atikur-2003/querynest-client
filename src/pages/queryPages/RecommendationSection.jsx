@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
-import Swal from 'sweetalert2';
+import React, { useState, useEffect } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
-const RecommendationSection = ({ query, currentUser }) => {
-
-    const axiosSecure = useAxiosSecure()
+const RecommendationSection = ({ query, setQuery, currentUser }) => {
+  const axiosSecure = useAxiosSecure();
 
   const [form, setForm] = useState({
-    title: '',
-    productName: '',
-    productImage: '',
-    reason: '',
+    title: "",
+    productName: "",
+    productImage: "",
+    reason: "",
   });
   const [recommendations, setRecommendations] = useState([]);
 
   const handleChange = (e) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const fetchRecommendations = async () => {
@@ -38,10 +37,17 @@ const RecommendationSection = ({ query, currentUser }) => {
     };
 
     await axiosSecure.post("/recommendations", payload);
-    setForm({ title: '', productName: '', productImage: '', reason: '' });
+    setForm({ title: "", productName: "", productImage: "", reason: "" });
     fetchRecommendations();
 
-    Swal.fire('Recommendation Submitted Successfully');
+    setQuery((prev) => ({
+      ...prev,
+      recommendationCount: prev.recommendationCount + 1,
+    }));
+
+    fetchRecommendations();
+
+    Swal.fire("Recommendation Submitted Successfully");
   };
 
   useEffect(() => {
@@ -50,8 +56,13 @@ const RecommendationSection = ({ query, currentUser }) => {
 
   return (
     <div className="mt-10">
-      <h3 className="text-xl font-semibold text-orange-500 mb-4">Add a Recommendation</h3>
-      <form onSubmit={handleSubmit} className="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
+      <h3 className="text-xl font-semibold text-orange-500 mb-4">
+        Add a Recommendation
+      </h3>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 bg-gray-50 p-4 rounded-lg shadow"
+      >
         <input
           type="text"
           name="title"
@@ -96,23 +107,32 @@ const RecommendationSection = ({ query, currentUser }) => {
       </form>
 
       <div className="mt-8">
-        <h4 className="text-lg text-orange-500 font-semibold mb-2">All Recommendations</h4>
+        <h4 className="text-lg text-orange-500 font-semibold mb-2">
+          All Recommendations
+        </h4>
         {recommendations.map((rec, idx) => (
-          <div
-            key={idx}
-            className="flex items-start gap-4 border-t py-4"
-          >
+          <div key={idx} className="flex items-start gap-4 border-t py-4">
             <img
               src={rec.productImage}
               alt="rec-img"
               className="w-20 object-cover rounded"
             />
             <div>
-              <p className="text-base font-semibold">Product Name : {rec.productName}</p>
-              <p className="text-base text-gray-700"><span className='text-black font-medium'>Title :</span> {rec.title}</p>
-              <p className="text-base text-gray-600 mb-1"><span className='text-black font-medium'>Reason :</span> {rec.reason}</p>
+              <p className="text-base font-semibold">
+                Product Name : {rec.productName}
+              </p>
+              <p className="text-base text-gray-700">
+                <span className="text-black font-medium">Title :</span>{" "}
+                {rec.title}
+              </p>
+              <p className="text-base text-gray-600 mb-1">
+                <span className="text-black font-medium">Reason :</span>{" "}
+                {rec.reason}
+              </p>
               <p className="text-sm text-gray-500">
-                <span className='text-black text-base'>Recommended by:</span> {rec.recommenderName} ({rec.recommenderEmail}) on {new Date(rec.createdAt).toLocaleString()}
+                <span className="text-black text-base">Recommended by:</span>{" "}
+                {rec.recommenderName} ({rec.recommenderEmail}) on{" "}
+                {new Date(rec.createdAt).toLocaleString()}
               </p>
             </div>
           </div>

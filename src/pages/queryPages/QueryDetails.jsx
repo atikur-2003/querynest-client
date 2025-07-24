@@ -59,6 +59,7 @@ const QueryDetails = () => {
       <QueryDetailsCard query={query}></QueryDetailsCard>
       <RecommendationSection
         query={query}
+        setQuery={setQuery}
         currentUser={{
           name: user.displayName,
           email: user.email,

@@ -30,7 +30,7 @@ const AddQuery = () => {
       userEmail: user.email,
       userName: user.displayName,
       userPhoto: user.photoURL,
-      cratedAt: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
       recommendationCount: 0,
     };
 
