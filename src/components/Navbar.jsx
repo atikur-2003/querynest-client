@@ -35,17 +35,17 @@ const Navbar = () => {
       <li className="text-base font-medium text-orange-500">
         <NavLink to="/queries">Queries</NavLink>
       </li>
-      <li className="text-base font-medium text-orange-500">
-            <NavLink to="/my-queries">My Queries</NavLink>
-          </li>
       {user && (
         <>
           <li className="text-base font-medium text-orange-500">
+            <NavLink to="/my-queries">My Queries</NavLink>
+          </li>
+          <li className="text-base font-medium text-orange-500">
             <NavLink to="/">Recommendations For Me</NavLink>
           </li>
-          
+
           <li className="text-base font-medium text-orange-500">
-            <NavLink to="/">My recommendations</NavLink>
+            <NavLink to="/my-recommendations">My recommendations</NavLink>
           </li>
         </>
       )}

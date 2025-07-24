@@ -1,43 +1,63 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router";
-import { FaEye } from "react-icons/fa";
+import { Link } from "react-router";
+import { FaEye, FaSearch } from "react-icons/fa";
 import Loading from "../../components/Loading";
+import debounce from "lodash.debounce";
 
 const AllQueries = () => {
   const axiosSecure = useAxiosSecure();
   const [queries, setQueries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+
+  const fetchQueries = async (searchText = "") => {
+    try {
+      setLoading(true);
+      const res = await axiosSecure.get(`/queries/search?name=${searchText}`);
+      const sorted = res.data.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      setQueries(sorted);
+    } catch (error) {
+      console.error("Failed to load queries:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchQueries = async () => {
-      try {
-        setLoading(true);
-        const res = await axiosSecure.get("/queries");
-        const sorted = res.data.sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
-        setQueries(sorted);
-      } catch (error) {
-        console.error("Failed to load queries:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchQueries();
-  }, [axiosSecure]);
+  }, []);
+
+  // Debounced Search Handler
+  const handleSearch = debounce((text) => {
+    fetchQueries(text);
+  }, 500);
 
   if (loading) return <Loading />;
 
   return (
-    <div className="min-h-screen px-4 md:px-10 py-24 bg-base-100">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#F26B21]">
+    <div className="min-h-screen px-4 md:px-10 py-28 bg-base-100">
+      <div className="text-center mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#F26B21] mb-2">
           All User Queries
         </h1>
-        <p className="text-gray-600 mt-2">Browse all submitted boycott queries</p>
+        <p className="text-gray-600">
+          Browse or search user-submitted queries
+        </p>
+      </div>
+
+      {/* Search Input */}
+      <div className="flex justify-center mb-8">
+        <div className="relative w-full max-w-md">
+          <input
+            type="text"
+            placeholder="Search by Product Name"
+            className="input input-bordered w-full pr-10"
+            onChange={(e) => handleSearch(e.target.value)}
+          />
+          <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
+        </div>
       </div>
 
       {queries.length === 0 ? (
@@ -61,7 +81,7 @@ const AllQueries = () => {
                   {query.reason?.slice(0, 100)}...
                 </p>
                 <p className="text-gray-700 text-sm mb-4">
-                  Total Recommendation : {query.recommendationCount}
+                  Total Recommendation: {query.recommendationCount}
                 </p>
               </div>
 
@@ -78,12 +98,11 @@ const AllQueries = () => {
               </div>
 
               <div className="mt-4">
-                <button
-                  onClick={() => navigate(`/query-details/${query._id}`)}
-                  className="btn btn-sm w-full text-orange-600 border border-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer"
-                >
-                 Recommend
-                </button>
+                <Link to={`/query-details/${query._id}`}>
+                  <button className="btn btn-sm w-full border border-orange-400 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer">
+                    Recommend
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
