@@ -33,16 +33,17 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-base font-medium text-orange-500">
-        <NavLink to="/">Queries</NavLink>
+        <NavLink to="/queries">Queries</NavLink>
       </li>
+      <li className="text-base font-medium text-orange-500">
+            <NavLink to="/my-queries">My Queries</NavLink>
+          </li>
       {user && (
         <>
           <li className="text-base font-medium text-orange-500">
             <NavLink to="/">Recommendations For Me</NavLink>
           </li>
-          <li className="text-base font-medium text-orange-500">
-            <NavLink to="/my-queries">My Queries</NavLink>
-          </li>
+          
           <li className="text-base font-medium text-orange-500">
             <NavLink to="/">My recommendations</NavLink>
           </li>
@@ -52,7 +53,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#FFFBF2]  shadow-sm">
+    <div className="navbar bg-[#FFFBF2] fixed top-0 left-0 z-10 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">
@@ -79,7 +80,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="User"
-                className="w-12 h-12 rounded-full cursor-pointer"
+                className="w-10 h-10 rounded-full cursor-pointer"
               />
             </Menu.Button>
 
@@ -107,7 +108,7 @@ const Navbar = () => {
               to="/login"
               className="px-4 py-2 rounded-lg text-base border border-orange-500  text-orange-500 hover:bg-orange-500 hover:text-white"
             >
-              SignIn
+              Log In
             </Link>
           </div>
         )}

@@ -8,6 +8,8 @@ import PrivateRoute from "./PrivateRoute";
 import MyQueries from "../pages/queryPages/MyQueries";
 import AddQuery from "../pages/queryPages/AddQuery";
 import QueryDetails from "../pages/queryPages/QueryDetails";
+import UpdateQuery from "../pages/queryPages/UpdateQuery";
+import AllQueries from "../pages/queryPages/AllQueries";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +21,11 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
+                path: 'queries',
+                Component: AllQueries
+            },
+
+            {
                 path: 'my-queries',
                 element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>
             },
@@ -29,7 +36,12 @@ export const router = createBrowserRouter([
             {
                 path: 'query-details/:id',
                 element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>
+            },
+            {
+                path: 'update-query/:id',
+                Component: UpdateQuery
             }
+
         ]
     },
     {

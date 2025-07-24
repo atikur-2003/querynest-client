@@ -44,15 +44,19 @@ const MyQueries = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
+      console.log(result);
       if (result.isConfirmed) {
         axiosSecure.delete(`/queries/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             Swal.fire("Deleted!", "Your query has been deleted.", "success");
-            setQueries(queries.filter((q) => q._id !== id));
+            setQueries((prev) => prev.filter((query) => query._id !== id));
           }
         });
       }
-    });
+    })
+    .catch(error =>{
+      console.log(error);
+    })
   };
 
   if (loading) return <Loading></Loading>;
@@ -89,7 +93,7 @@ const MyQueries = () => {
             >
               <h3 className="text-xl font-bold mb-2">{query.queryTitle}</h3>
               <p className="mb-4 text-gray-700">
-                {query.reason?.slice(0, 100)}...
+                {query.reason?.slice(0, 100)}
               </p>
               <div className="flex justify-between items-center mt-auto">
                 <button

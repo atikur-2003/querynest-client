@@ -41,13 +41,20 @@ const QueryDetails = () => {
     );
 
   return (
-    <div className="min-h-screen bg-base-100 px-4 md:px-10 py-24">
-      <button
-        onClick={() => navigate(-1)}
-        className="mb-6 btn btn-sm bg-gray-100 hover:bg-gray-200 text-gray-800"
-      >
-        <FaArrowLeft /> Back
-      </button>
+    <div className="min-h-screen bg-base-100 px-4 md:px-10 py-30">
+      <div className="flex">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 btn btn-sm bg-gray-100 hover:bg-gray-200 text-gray-800"
+        >
+          <FaArrowLeft /> Back
+        </button>
+      </div>
+      <div className="text-center mb-10">
+        <h1 className="text-2xl md:text-3xl text-orange-500 font-bold">
+          Query Details Here
+        </h1>
+      </div>
 
       <QueryDetailsCard query={query}></QueryDetailsCard>
       <RecommendationSection

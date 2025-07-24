@@ -101,14 +101,14 @@ const AddQuery = () => {
           </div>
 
           <div>
-            <label className="block font-medium">Boycotting Reason Details</label>
+            <label className="block font-medium">Query Reason Details</label>
             <textarea
               name="reason"
               rows="5"
               value={formData.reason}
               onChange={handleChange}
               className="textarea textarea-bordered w-full mt-1"
-              placeholder="Why do you want to boycott this product?"
+              placeholder="What is the reason of your query?"
               required
             ></textarea>
           </div>

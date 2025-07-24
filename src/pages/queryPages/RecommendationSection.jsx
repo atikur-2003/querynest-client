@@ -50,7 +50,7 @@ const RecommendationSection = ({ query, currentUser }) => {
 
   return (
     <div className="mt-10">
-      <h3 className="text-xl font-semibold mb-4">Add a Recommendation</h3>
+      <h3 className="text-xl font-semibold text-orange-500 mb-4">Add a Recommendation</h3>
       <form onSubmit={handleSubmit} className="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
         <input
           type="text"
@@ -96,7 +96,7 @@ const RecommendationSection = ({ query, currentUser }) => {
       </form>
 
       <div className="mt-8">
-        <h4 className="text-lg font-semibold mb-2">All Recommendations</h4>
+        <h4 className="text-lg text-orange-500 font-semibold mb-2">All Recommendations</h4>
         {recommendations.map((rec, idx) => (
           <div
             key={idx}
@@ -105,14 +105,14 @@ const RecommendationSection = ({ query, currentUser }) => {
             <img
               src={rec.productImage}
               alt="rec-img"
-              className="w-16 h-16 object-cover rounded"
+              className="w-20 object-cover rounded"
             />
             <div>
-              <p className="text-sm font-semibold">{rec.productName}</p>
-              <p className="text-sm text-gray-700">{rec.title}</p>
-              <p className="text-xs text-gray-600 mb-1">{rec.reason}</p>
-              <p className="text-xs text-gray-500">
-                Recommended by {rec.recommenderName} ({rec.recommenderEmail}) on {new Date(rec.createdAt).toLocaleString()}
+              <p className="text-base font-semibold">Product Name : {rec.productName}</p>
+              <p className="text-base text-gray-700"><span className='text-black font-medium'>Title :</span> {rec.title}</p>
+              <p className="text-base text-gray-600 mb-1"><span className='text-black font-medium'>Reason :</span> {rec.reason}</p>
+              <p className="text-sm text-gray-500">
+                <span className='text-black text-base'>Recommended by:</span> {rec.recommenderName} ({rec.recommenderEmail}) on {new Date(rec.createdAt).toLocaleString()}
               </p>
             </div>
           </div>

@@ -56,10 +56,10 @@ const Signup = () => {
 
 
   return (
-    <div className="hero bg-base-200 min-h-screen py-26">
+    <div className="hero py-20 bg-base-200 min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="text-center mt-5">
-          <h1 className="text-2xl font-semibold">Register your account</h1>
+          <h1 className="text-2xl text-orange-500 font-semibold">Register your account</h1>
         </div>
         <div className="card-body">
           <form onSubmit={handleSignup} className="fieldset">

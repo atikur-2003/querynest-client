@@ -44,10 +44,10 @@ const Signin = () => {
   
 
   return (
-    <div className="py-28 px-3 md:px-0">
+    <div className="py-20 px-3 md:px-0">
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="text-center mt-5">
-          <h1 className="text-2xl font-semibold">Log In your account</h1>
+          <h1 className="text-2xl text-orange-500 font-semibold">Log In your account</h1>
         </div>
         <div className="card-body">
           <form onSubmit={handleSignIn} className="fieldset">

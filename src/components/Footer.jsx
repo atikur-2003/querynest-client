@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-slate-900 text-neutral-content p-10">
+    <footer className="footer sm:footer-horizontal bg-slate-900 text-neutral-content p-6 md:p-10">
   <aside>
     <LogoTitle></LogoTitle>
     <p className='text-base font-medium'>
