@@ -100,7 +100,7 @@ const RecommendationSection = ({ query, setQuery, currentUser }) => {
         />
         <button
           type="submit"
-          className="px-4 py-2 border border-orange-500 text-orange-500 hover:bg-orange-600 hover:text-white rounded cursor-pointer"
+          className="px-4 py-2 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded cursor-pointer transition"
         >
           Add Recommendation
         </button>

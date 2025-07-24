@@ -99,7 +99,7 @@ const AllQueries = () => {
 
               <div className="mt-4">
                 <Link to={`/query-details/${query._id}`}>
-                  <button className="btn btn-sm w-full border border-orange-400 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer">
+                  <button className="btn btn-sm w-full border border-orange-400 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer transition">
                     Recommend
                   </button>
                 </Link>
