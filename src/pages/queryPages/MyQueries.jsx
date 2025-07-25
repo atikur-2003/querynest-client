@@ -67,7 +67,7 @@ const MyQueries = () => {
       <div className="bg-gradient-to-r from-[#F26B21] to-orange-500 text-white rounded-xl p-6 md:p-10 text-center shadow-md mb-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">My Queries</h2>
         <Link to="/add-query">
-          <button className="btn bg-white text-[#F26B21] font-semibold hover:bg-gray-200">
+          <button className="btn border border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white cursor-pointer">
             Add Queries
           </button>
         </Link>
@@ -78,7 +78,7 @@ const MyQueries = () => {
         <div className="text-center mt-16">
           <p className="text-xl font-medium mb-4">No Queries Found.</p>
           <Link to="/add-query">
-            <button className="btn bg-[#F26B21] text-white">
+            <button className="btn border border-orange-500 text-orange-500  hover:bg-orange-500 hover:text-white cursor-pointer">
               Add Your First Query
             </button>
           </Link>

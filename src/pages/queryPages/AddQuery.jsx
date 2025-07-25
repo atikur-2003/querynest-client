@@ -49,7 +49,7 @@ const AddQuery = () => {
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-26">
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl">
-        <h2 className="text-3xl font-bold text-center text-[#F26B21] mb-6">Add a New Query</h2>
+        <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">Add a New Query</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block font-medium">Product Name</label>
@@ -114,7 +114,7 @@ const AddQuery = () => {
           </div>
 
           <div className="text-center pt-4">
-            <button type="submit" className="btn bg-[#F26B21] text-white px-6 text-lg">
+            <button type="submit" className="btn border border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white cursor-pointer px-6 text-lg">
               Add Query
             </button>
           </div>

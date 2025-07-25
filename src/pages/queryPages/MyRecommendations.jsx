@@ -54,7 +54,7 @@ const MyRecommendations = () => {
 
   return (
     <div className="min-h-screen px-4 md:px-10 py-24 bg-base-100">
-      <h2 className="text-3xl font-bold text-center mb-8">My Recommendations</h2>
+      <h2 className="text-2xl md:text-3xl text-orange-500 font-bold text-center mb-8">My Recommendations</h2>
 
       {recommendations.length === 0 ? (
         <p className="text-center text-xl">You haven't recommended anything yet.</p>
