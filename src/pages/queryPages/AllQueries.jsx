@@ -42,9 +42,7 @@ const AllQueries = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-[#F26B21] mb-2">
           All User Queries
         </h1>
-        <p className="text-gray-600">
-          Browse or search user-submitted queries
-        </p>
+        <p className="text-gray-600">Browse or search user-submitted queries</p>
       </div>
 
       {/* Search Input */}
@@ -64,6 +62,8 @@ const AllQueries = () => {
         <p className="text-center text-lg font-semibold">No queries found.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+
           {queries.map((query) => (
             <div
               key={query._id}

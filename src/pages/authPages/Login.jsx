@@ -5,7 +5,7 @@ import { FaEyeSlash, FaGoogle, FaRegEye } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "./SocialLogin";
 
-const Signin = () => {
+const Login = () => {
   const { signIn, } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -111,4 +111,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;

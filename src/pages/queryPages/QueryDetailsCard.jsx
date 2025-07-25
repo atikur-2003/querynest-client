@@ -29,24 +29,24 @@ const QueryDetailsCard = ({ query }) => {
         <h2 className="font-semibold text-gray-800">
           <strong>Product Name :</strong> {productName}
         </h2>
-        <p className="text-sm text-gray-500">
-          Brand: <span className="font-medium">{productBrand}</span>
+        <p className="text-base font-semibold ">
+          Brand: <span className="font-medium text-gray-700">{productBrand}</span>
         </p>
-        <p className="text-lg font-medium text-gray-700">{queryTitle}</p>
-        <p className="text-gray-600">
-          <span className="font-medium">Reason:</span> {reason}
+        <p className="text-lg font-medium text-gray-700"><span className="font-semibold">Title : </span>{queryTitle}</p>
+        <p className="text-gray-700">
+          <span className="font-semibold">Reason:</span> {reason}
         </p>
 
-        <div className="mt-4 text-sm text-gray-600 space-y-1">
+        <div className="mt-4 text-base text-gray-600 space-y-1">
           <p>
-            <span className="font-medium">User:</span> {userName} ({userEmail})
+            <span className="font-semibold">User:</span> {userName} ({userEmail})
           </p>
           <p>
-            <span className="font-medium">Created At:</span>{" "}
+            <span className="font-semibold">Created At:</span>{" "}
             {new Date(createdAt).toLocaleString()}
           </p>
           <p>
-            <span className="font-medium">Recommendations:</span>{" "}
+            <span className="font-semibold">Total Recommendations:</span>{" "}
             {recommendationCount}
           </p>
         </div>

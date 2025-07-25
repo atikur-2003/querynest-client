@@ -45,7 +45,7 @@ const QueryDetails = () => {
       <div className="flex">
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 btn btn-sm bg-gray-100 hover:bg-gray-200 text-gray-800"
+          className="mb-6 btn btn-sm border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer"
         >
           <FaArrowLeft /> Back
         </button>

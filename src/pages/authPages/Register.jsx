@@ -5,13 +5,13 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "./SocialLogin";
 
-const Signup = () => {
+const Register = () => {
   const { createUser, setUser, updateUser } = useAuth();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
 
-  const handleSignup = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -22,10 +22,10 @@ const Signup = () => {
     setErrorMessage("");
 
     // password validation
-    const validationEx = /(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{6}/;
-    if (validationEx.test(password) === false) {
+    const validationEx = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!validationEx.test(password)) {
       setErrorMessage(
-        "Password must have one uppercase, one lowercase and have to at least 6 characters long"
+        "Password must have at least one uppercase, one lowercase letter and be at least 6 characters long"
       );
       return;
     }
@@ -54,15 +54,16 @@ const Signup = () => {
       });
   };
 
-
   return (
     <div className="hero py-20 bg-base-200 min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="text-center mt-5">
-          <h1 className="text-2xl text-orange-500 font-semibold">Register your account</h1>
+          <h1 className="text-2xl text-orange-500 font-semibold">
+            Register your account
+          </h1>
         </div>
         <div className="card-body">
-          <form onSubmit={handleSignup} className="fieldset">
+          <form onSubmit={handleRegister} className="fieldset">
             <label className="label text-lg font-medium">Name</label>
             <input
               type="text"
@@ -130,4 +131,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;

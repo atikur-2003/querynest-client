@@ -1,13 +1,25 @@
 import axios from 'axios';
-import React from 'react';
-
+import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
-})
+  baseURL: 'http://localhost:5000',
+});
 
 const useAxiosSecure = () => {
-    return axiosSecure;
+  const { user } = useAuth();
+
+  axiosSecure.interceptors.request.use(
+    async (config) => {
+      if (user) {
+        const token = await user.getIdToken();
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => Promise.reject(error)
+  );
+
+  return axiosSecure;
 };
 
 export default useAxiosSecure;

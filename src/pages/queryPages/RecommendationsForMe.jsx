@@ -19,13 +19,13 @@ const RecommendationsForMe = () => {
   }, [user]);
 
   return (
-    <div className="max-w-6xl mx-auto py-28">
+    <div className="max-w-6xl mx-auto pt-30 pb-36">
       <h2 className="text-2xl font-bold text-center  text-orange-500 mb-10">
         Recommendations for My Queries
       </h2>
 
       {recommendations.length === 0 ? (
-        <p className="text-gray-500">No recommendations found.</p>
+        <p className="text-xl text-gray-500 text-center">No recommendations found.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300">
