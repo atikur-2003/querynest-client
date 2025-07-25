@@ -1,24 +1,10 @@
-import axios from 'axios';
-import useAuth from './useAuth';
+import axios from "axios";
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: "https://assignment-11-server-blush-phi.vercel.app",
 });
 
 const useAxiosSecure = () => {
-  const { user } = useAuth();
-
-  axiosSecure.interceptors.request.use(
-    async (config) => {
-      if (user) {
-        const token = await user.getIdToken();
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    },
-    (error) => Promise.reject(error)
-  );
-
   return axiosSecure;
 };
 
