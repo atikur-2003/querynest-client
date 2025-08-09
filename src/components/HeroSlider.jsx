@@ -18,7 +18,7 @@ const slides = [
   {
     img: "https://i.postimg.cc/c1kFcbnC/banner3.jpg",
     heading: "Community Recommendations",
-    subheading: "Browse others’ queries and contribute with better suggestions.",
+    subheading: "Browse other's queries and contribute with better suggestions.",
   },
 ];
 

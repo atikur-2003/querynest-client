@@ -12,6 +12,7 @@ import UpdateQuery from "../pages/queryPages/UpdateQuery";
 import AllQueries from "../pages/queryPages/AllQueries";
 import MyRecommendations from "../pages/queryPages/MyRecommendations";
 import RecommendationsForMe from "../pages/queryPages/RecommendationsForMe";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -67,5 +68,9 @@ export const router = createBrowserRouter([
                 Component: Login
             }
         ]
+    },
+    {
+        path: '*',
+        Component: ErrorPage
     }
 ])
