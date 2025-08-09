@@ -6,17 +6,17 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    img:'https://i.postimg.cc/qq073qM6/banner1.avif',
+    img:'https://i.postimg.cc/D08QLq7C/Exploring-Cable-Free-Computer-Networks-Types-and.jpg',
     heading: "Find Better Alternatives",
     subheading: "Discover community-recommended products tailored to your needs.",
   },
   {
-    img: 'https://i.postimg.cc/9MtvMt8T/banner2.jpg',
+    img: 'https://i.postimg.cc/ZYvhxnVg/Turn-clicks-into-commissions-Learn-the.jpg',
     heading: "Ask Before You Buy",
     subheading: "Post your product concerns & get real responses from real users.",
   },
   {
-    img: "https://i.postimg.cc/c1kFcbnC/banner3.jpg",
+    img: "https://i.postimg.cc/NFmM3MDs/People-Working-in-Office-Illustration.jpg",
     heading: "Community Recommendations",
     subheading: "Browse other's queries and contribute with better suggestions.",
   },
@@ -36,7 +36,7 @@ const HeroSlider = () => {
           <SwiperSlide key={index}>
             <div
               className="relative h-full w-full bg-cover bg-center flex items-center justify-center text-white"
-              style={{ backgroundImage: `url(${slide.img})` }}
+              style={{ backgroundImage: `url(${slide.img})` ,}}
             >
               <div className="bg-black/60 w-full h-full absolute top-0 left-0"></div>
               <div className="relative z-10 text-center px-4 max-w-2xl">
