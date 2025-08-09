@@ -23,7 +23,7 @@ const RecentQueries = () => {
         {queries.map((query) => (
           <div
             key={query._id}
-            className="flex flex-col p-5 sm:flex-row bg-white rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden"
+            className="flex flex-col p-5 sm:flex-row  rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden"
           >
             <div className="">
               <img
