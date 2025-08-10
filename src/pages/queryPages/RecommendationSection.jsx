@@ -111,11 +111,11 @@ const RecommendationSection = ({ query, setQuery, currentUser }) => {
           All Recommendations
         </h4>
         {recommendations.map((rec, idx) => (
-          <div key={idx} className="flex items-start gap-4 border-t py-4">
+          <div key={idx} className="flex flex-col md:flex-row items-start gap-4 border-t py-4">
             <img
               src={rec.productImage}
               alt="rec-img"
-              className="w-30 object-cover rounded"
+              className="w-40 object-cover rounded"
             />
             <div>
               <p className="text-base font-semibold">

@@ -83,13 +83,20 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
+
+      {/* navbar end */}
       <div className="navbar-end">
-        
+        {/* theme toggle button */}
         <label className="toggle text-base-content mr-3">
           <input
             type="checkbox"
             value="dark"
             className="theme-controller"
+            onChange={(e) => {
+              const newTheme = e.target.checked ? "dark" : "light";
+              document.documentElement.setAttribute("data-theme", newTheme);
+              localStorage.setItem("theme", newTheme);
+            }}
           />
 
           <svg
@@ -133,6 +140,7 @@ const Navbar = () => {
           </svg>
         </label>
 
+        {/* user icon */}
         {user ? (
           <Menu as="div" className="relative inline-block text-left ">
             <Menu.Button className="flex items-center focus:outline-none">
