@@ -30,12 +30,15 @@ const RecommendationDetails = () => {
     );
   }
 
-  const { productImage, productName, reason, recommenderName, recommenderEmail, createdAt } = recommendation;
+  const {title, productImage, productName, reason, recommenderName, recommenderEmail, createdAt } = recommendation;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col lg:flex-row">
-        <div className="lg:w-1/2">
+    <div className="max-w-5xl mx-auto px-4 py-28">
+      <div className="text-center mb-10">
+        <h1 className="text-3xl text-orange-500 font-bold">Recommendation Details</h1>
+      </div>
+      <div className="rounded-lg shadow hover:shadow-md overflow-hidden flex flex-col lg:flex-row">
+        <div className="lg:w-1/3">
           <img
             src={productImage}
             alt={productName}
@@ -43,20 +46,20 @@ const RecommendationDetails = () => {
           />
         </div>
         <div className="lg:w-1/2 p-6 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold mb-4">{productName}</h2>
-          <p className="text-gray-700 mb-4">{reason}</p>
+          <h2 className="text-xl text-orange-500 font-bold mb-4">Title : {title}</h2>
+          <h2 className="text-lg font-bold mb-4">Product : {productName}</h2>
+          <p className="text-gray-700 text-base mb-4"><span className="text-black font-semibold">Reason :</span> {reason}</p>
           <div className="mb-4">
-            <p className="text-sm text-gray-500">
-              Recommended by: <span className="font-semibold">{recommenderName}</span>
+            <p className="text-sm text-gray-500 mb-3">
+              Recommended by: <span className="font-semibold">{recommenderName} ({recommenderEmail})</span>
             </p>
-            <p className="text-sm text-gray-500">Email: {recommenderEmail}</p>
             <p className="text-sm text-gray-500">
               Date: {new Date(createdAt).toLocaleDateString()}
             </p>
           </div>
           <button
             onClick={() => window.history.back()}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            className="px-4 py-2 text-orange-500 border border-orange-500 hover:bg-orange-500 hover:text-white rounded-lg cursor-pointer transition"
           >
             Go Back
           </button>

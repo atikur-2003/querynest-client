@@ -14,7 +14,7 @@ const RecentQueries = () => {
   }, []);
 
   return (
-    <div className="my-14 px-4 lg:px-10 py-6">
+    <div className="my-20 px-4 lg:px-10 py-6">
       <h2 className="text-2xl md:text-3xl font-bold text-center text-orange-500 mb-10">
         Recently Added Queries
       </h2>

@@ -14,33 +14,32 @@ const AllRecommendations = () => {
   }, []);
 
   return (
-    <div className="px-4 py-8 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-center">
+    <div className="px-4 my-20 max-w-6xl mx-auto">
+      <h2 className="text-3xl text-orange-500 font-bold mb-10 text-center">
         All Recommendations
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {recommendations.map((rec) => (
           <div
             key={rec._id}
-            className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row"
+            className="p-5 rounded-xl shadow hover:shadow-md overflow-hidden flex flex-col md:flex-row gap-5"
           >
-            {/* Image */}
             <img
               src={rec.productImage}
               alt={rec.productName}
               className="w-full md:w-1/3 h-48 object-cover"
             />
 
-            {/* Content */}
             <div className="p-4">
               <div>
-                <h3 className="text-lg font-semibold">{rec.productName}</h3>
-
-                <p className="text-gray-500 text-xs mt-2">
-                  Recommended by:{" "}
-                  <span className="font-medium">
+                <h3 className="text-lg text-orange-500 font-semibold mb-3">Title : {rec.title}</h3>
+                <h3 className="text-base font-semibold mb-3">Product : {rec.productName}</h3>
+                <p className="text-gray-500 text-xs mb-3">
+                  <span className="font-medium text-base text-black">Recommended by:</span>
                     {rec.recommenderName} ({rec.recommenderEmail})
-                  </span>
+                </p>
+                <p className="text-sm text-gray-400 mb-5">
+                  Created At: {new Date(rec.createdAt).toLocaleString()}
                 </p>
               </div>
               <div>

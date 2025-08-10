@@ -29,25 +29,25 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li className="text-base font-medium text-orange-500">
+      <li className="text-sm font-medium text-orange-500">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="text-base font-medium text-orange-500">
+      <li className="text-sm font-medium text-orange-500">
         <NavLink to="/queries">Queries</NavLink>
       </li>
-      <li className="text-base font-medium text-orange-500">
+      <li className="text-sm font-medium text-orange-500">
         <NavLink to="/about-us">About Us</NavLink>
       </li>
       {user && (
         <>
-          <li className="text-base font-medium text-orange-500">
+          <li className="text-sm font-medium text-orange-500">
             <NavLink to="/my-queries">My Queries</NavLink>
           </li>
-          <li className="text-base font-medium text-orange-500">
+          <li className="text-sm font-medium text-orange-500">
             <NavLink to="/recommendation-for-me">Recommendations For Me</NavLink>
           </li>
 
-          <li className="text-base font-medium text-orange-500">
+          <li className="text-sm font-medium text-orange-500">
             <NavLink to="/my-recommendations">My recommendations</NavLink>
           </li>
         </>
