@@ -25,11 +25,11 @@ const RecommendationsForMe = () => {
       </h2>
 
       {recommendations.length === 0 ? (
-        <p className="text-xl text-gray-500 text-center">No recommendations found.</p>
+        <p className="text-xl text-center">No recommendations found.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300">
-            <thead className="bg-[#FFFBF2] text-orange-500">
+            <thead className="text-orange-500">
               <tr>
                 <th className="py-2 px-4 border">Title</th>
                 <th className="py-2 px-4 border">Product Name</th>
@@ -41,7 +41,7 @@ const RecommendationsForMe = () => {
             </thead>
             <tbody>
               {recommendations.map((rec) => (
-                <tr key={rec._id} className="text-sm text-gray-700">
+                <tr key={rec._id} className="text-sm">
                   <td className="py-2 px-4 border">{rec.title}</td>
                   <td className="py-2 px-4 border">{rec.productName}</td>
                   <td className="py-2 px-4 border">{rec.reason}</td>

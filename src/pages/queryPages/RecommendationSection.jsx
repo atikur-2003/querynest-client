@@ -18,7 +18,7 @@ const RecommendationSection = ({ query, setQuery, currentUser }) => {
   };
 
   const fetchRecommendations = async () => {
-    const res = await axiosSecure.get(`/recommendations/${query._id}`);
+    const res = await axiosSecure.get(`/recommendations/query/${query._id}`);
     setRecommendations(res.data);
   };
 
@@ -115,22 +115,22 @@ const RecommendationSection = ({ query, setQuery, currentUser }) => {
             <img
               src={rec.productImage}
               alt="rec-img"
-              className="w-20 object-cover rounded"
+              className="w-30 object-cover rounded"
             />
             <div>
               <p className="text-base font-semibold">
                 Product Name : {rec.productName}
               </p>
-              <p className="text-base text-gray-700">
-                <span className="text-black font-medium">Title :</span>{" "}
+              <p className="text-base">
+                <span className="font-medium">Title :</span>{" "}
                 {rec.title}
               </p>
-              <p className="text-base text-gray-600 mb-1">
-                <span className="text-black font-medium">Reason :</span>{" "}
+              <p className="text-base mb-1">
+                <span className="font-medium">Reason :</span>{" "}
                 {rec.reason}
               </p>
-              <p className="text-sm text-gray-500">
-                <span className="text-black text-base">Recommended by:</span>{" "}
+              <p className="text-sm">
+                <span className=" text-base">Recommended by:</span>{" "}
                 {rec.recommenderName} ({rec.recommenderEmail}) on{" "}
                 {new Date(rec.createdAt).toLocaleString()}
               </p>

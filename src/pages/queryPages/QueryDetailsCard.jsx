@@ -14,7 +14,7 @@ const QueryDetailsCard = ({ query }) => {
   } = query;
 
   return (
-    <div className="max-w-4xl mx-auto shadow-md rounded-xl overflow-hidden flex flex-col md:flex-row p-4 gap-6">
+    <div className="max-w-5xl bg-base-300 mx-auto shadow-md rounded-xl overflow-hidden flex flex-col md:flex-row p-7 gap-6">
       {/* Image */}
       <div className="w-full md:w-1/3">
         <img

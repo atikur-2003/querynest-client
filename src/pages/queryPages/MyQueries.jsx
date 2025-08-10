@@ -89,10 +89,10 @@ const MyQueries = () => {
           {queries.map((query) => (
             <div
               key={query._id}
-              className="card bg-base-200 p-5 shadow-lg rounded-xl border border-gray-200"
+              className="card bg-base-200 p-5 shadow-lg rounded-xl"
             >
               <h3 className="text-xl font-bold mb-2">{query.queryTitle}</h3>
-              <p className="mb-4 text-gray-700">
+              <p className="mb-4">
                 {query.reason?.slice(0, 100)}
               </p>
               <div className="flex justify-between items-center mt-auto">

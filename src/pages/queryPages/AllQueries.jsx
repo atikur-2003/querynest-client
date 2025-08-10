@@ -42,7 +42,7 @@ const AllQueries = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-[#F26B21] mb-2">
           All User Queries
         </h1>
-        <p className="text-gray-600">Browse or search user-submitted queries</p>
+        <p>Browse or search user-submitted queries</p>
       </div>
 
       {/* Search Input */}
@@ -67,20 +67,20 @@ const AllQueries = () => {
           {queries.map((query) => (
             <div
               key={query._id}
-              className="card bg-base-200 border border-gray-200 shadow-lg rounded-xl p-5 flex flex-col justify-between"
+              className="card bg-base-300 shadow-lg rounded-xl p-5 flex flex-col justify-between"
             >
               <div>
                 <h2 className="text-xl font-semibold text-[#F26B21] mb-1">
                   {query.queryTitle}
                 </h2>
-                <p className="text-sm text-gray-600 mb-2">
+                <p className="text-sm mb-2">
                   <span className="font-semibold">Product:</span>{" "}
                   {query.productName} ({query.productBrand})
                 </p>
-                <p className="text-gray-700 text-sm mb-4">
+                <p className="text-sm mb-4">
                   {query.reason?.slice(0, 100)}...
                 </p>
-                <p className="text-gray-700 text-sm mb-4">
+                <p className="text-sm mb-4">
                   Total Recommendation: {query.recommendationCount}
                 </p>
               </div>
@@ -93,7 +93,7 @@ const AllQueries = () => {
                 />
                 <div>
                   <p className="font-medium text-sm">{query.userName}</p>
-                  <p className="text-xs text-gray-500">{query.email}</p>
+                  <p className="text-xs">{query.email}</p>
                 </div>
               </div>
 

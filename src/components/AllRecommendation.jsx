@@ -22,7 +22,7 @@ const AllRecommendations = () => {
         {recommendations.map((rec) => (
           <div
             key={rec._id}
-            className="p-5 rounded-xl shadow hover:shadow-md overflow-hidden flex flex-col md:flex-row gap-5"
+            className="p-5 bg-base-300 rounded-xl shadow hover:shadow-md overflow-hidden flex flex-col md:flex-row gap-5"
           >
             <img
               src={rec.productImage}

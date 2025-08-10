@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import LogoTitle from "../shared/LogoTitle";
 import { FaBars } from "react-icons/fa";
