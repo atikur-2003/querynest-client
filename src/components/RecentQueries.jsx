@@ -23,13 +23,13 @@ const RecentQueries = () => {
         {queries.map((query) => (
           <div
             key={query._id}
-            className="flex flex-col p-5 sm:flex-row  rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden"
+            className="flex dark:bg-base-100 flex-col p-5 sm:flex-row  rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden"
           >
             <div className="">
               <img
                 src={query.imageUrl}
                 alt="Product"
-                className="w-full sm:w-48 object-cover"
+                className="w-full rounded-lg sm:w-48 object-cover"
               />
             </div>
 
@@ -38,15 +38,15 @@ const RecentQueries = () => {
                 <h3 className="text-lg font-semibold text-orange-500 mb-1">
                   Title : {query.queryTitle}
                 </h3>
-                <p className="text-gray-700 font-semibold">
+                <p className="font-semibold">
                   Product:{" "}
                   {query.productName}
                 </p>
-                <p className="text-sm text-gray-500 mt-1">
-                  <span className="font-medium text-base text-black">Posted by:</span>{" "}
+                <p className="text-sm mt-1">
+                  <span className="font-medium text-base">Posted by:</span>{" "}
                   {query.userName} ({query.userEmail})
                 </p>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm mt-2">
                   Created At: {new Date(query.createdAt).toLocaleString()}
                 </p>
               </div>

@@ -14,7 +14,7 @@ const QueryDetailsCard = ({ query }) => {
   } = query;
 
   return (
-    <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl overflow-hidden flex flex-col md:flex-row p-4 gap-6">
+    <div className="max-w-4xl mx-auto shadow-md rounded-xl overflow-hidden flex flex-col md:flex-row p-4 gap-6">
       {/* Image */}
       <div className="w-full md:w-1/3">
         <img
@@ -26,18 +26,18 @@ const QueryDetailsCard = ({ query }) => {
 
       {/* Info */}
       <div className="w-full md:w-2/3 space-y-2">
-        <h2 className="font-semibold text-gray-800">
+        <h2 className="font-semibold">
           <strong>Product Name :</strong> {productName}
         </h2>
         <p className="text-base font-semibold ">
-          Brand: <span className="font-medium text-gray-700">{productBrand}</span>
+          Brand: <span className="font-medium">{productBrand}</span>
         </p>
-        <p className="text-lg font-medium text-gray-700"><span className="font-semibold">Title : </span>{queryTitle}</p>
-        <p className="text-gray-700">
+        <p className="text-lg font-medium"><span className="font-semibold">Title : </span>{queryTitle}</p>
+        <p>
           <span className="font-semibold">Reason:</span> {reason}
         </p>
 
-        <div className="mt-4 text-base text-gray-600 space-y-1">
+        <div className="mt-4 text-base space-y-1">
           <p>
             <span className="font-semibold">User:</span> {userName} ({userEmail})
           </p>

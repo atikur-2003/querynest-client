@@ -7,7 +7,7 @@ const LogoTitle = () => {
     <div>
       <Link to="/">
         <div className="flex gap-0 md:gap-1 items-center">
-          <img src={logo} className="w-16 rounded-full" alt="" />
+          {/* <img src={logo} className="w-16 rounded-full" alt="" /> */}
           <h1 className="text-xl md:text-2xl font-bold text-orange-500">QueryNest</h1>
         </div>
       </Link>

@@ -42,18 +42,18 @@ const RecommendationDetails = () => {
           <img
             src={productImage}
             alt={productName}
-            className="w-full h-64 lg:h-full object-cover"
+            className="w-full h-64 rounded-lg lg:h-full object-cover"
           />
         </div>
         <div className="lg:w-1/2 p-6 flex flex-col justify-center">
           <h2 className="text-xl text-orange-500 font-bold mb-4">Title : {title}</h2>
           <h2 className="text-lg font-bold mb-4">Product : {productName}</h2>
-          <p className="text-gray-700 text-base mb-4"><span className="text-black font-semibold">Reason :</span> {reason}</p>
+          <p className="text-base mb-4"><span className="font-semibold">Reason :</span> {reason}</p>
           <div className="mb-4">
-            <p className="text-sm text-gray-500 mb-3">
+            <p className="text-sm mb-3">
               Recommended by: <span className="font-semibold">{recommenderName} ({recommenderEmail})</span>
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm">
               Date: {new Date(createdAt).toLocaleDateString()}
             </p>
           </div>

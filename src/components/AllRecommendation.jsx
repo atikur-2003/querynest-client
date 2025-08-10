@@ -27,18 +27,18 @@ const AllRecommendations = () => {
             <img
               src={rec.productImage}
               alt={rec.productName}
-              className="w-full md:w-1/3 h-48 object-cover"
+              className="w-full rounded-lg md:w-1/3 h-48 object-cover"
             />
 
             <div className="p-4">
               <div>
                 <h3 className="text-lg text-orange-500 font-semibold mb-3">Title : {rec.title}</h3>
                 <h3 className="text-base font-semibold mb-3">Product : {rec.productName}</h3>
-                <p className="text-gray-500 text-xs mb-3">
-                  <span className="font-medium text-base text-black">Recommended by:</span>
+                <p className="text-xs mb-3">
+                  <span className="font-medium text-base">Recommended by:</span>
                     {rec.recommenderName} ({rec.recommenderEmail})
                 </p>
-                <p className="text-sm text-gray-400 mb-5">
+                <p className="text-sm mb-5">
                   Created At: {new Date(rec.createdAt).toLocaleString()}
                 </p>
               </div>

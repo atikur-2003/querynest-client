@@ -61,7 +61,7 @@ const RecommendationSection = ({ query, setQuery, currentUser }) => {
       </h3>
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-gray-50 p-4 rounded-lg shadow"
+        className="space-y-4 p-4 rounded-lg shadow"
       >
         <input
           type="text"

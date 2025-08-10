@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import LogoTitle from "../shared/LogoTitle";
 import { FaBars } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import { Menu } from "@headlessui/react";
+import { IoSunny } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -44,7 +45,9 @@ const Navbar = () => {
             <NavLink to="/my-queries">My Queries</NavLink>
           </li>
           <li className="text-sm font-medium text-orange-500">
-            <NavLink to="/recommendation-for-me">Recommendations For Me</NavLink>
+            <NavLink to="/recommendation-for-me">
+              Recommendations For Me
+            </NavLink>
           </li>
 
           <li className="text-sm font-medium text-orange-500">
@@ -56,10 +59,14 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#FFFBF2] fixed top-0 left-0 z-10 shadow-sm px-0 md:px-10">
+    <div className="navbar fixed top-0 bg-base-100 left-0 z-10 shadow-sm px-3 md:px-10">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="lg:hidden mr-2 text-orange-500"
+          >
             <FaBars size={20}></FaBars>
           </div>
           <ul
@@ -77,6 +84,55 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
+        
+        <label className="toggle text-base-content mr-3">
+          <input
+            type="checkbox"
+            value="dark"
+            className="theme-controller"
+          />
+
+          <svg
+            aria-label="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </g>
+          </svg>
+
+          <svg
+            aria-label="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </g>
+          </svg>
+        </label>
+
         {user ? (
           <Menu as="div" className="relative inline-block text-left ">
             <Menu.Button className="flex items-center focus:outline-none">
