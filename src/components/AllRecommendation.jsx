@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 
 const AllRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -20,7 +21,11 @@ const AllRecommendations = () => {
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {recommendations.map((rec) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
             key={rec._id}
             className="p-5 bg-base-300 rounded-xl shadow hover:shadow-md overflow-hidden flex flex-col md:flex-row gap-5"
           >
@@ -32,11 +37,15 @@ const AllRecommendations = () => {
 
             <div className="p-4">
               <div>
-                <h3 className="text-lg text-orange-500 font-semibold mb-3">Title : {rec.title}</h3>
-                <h3 className="text-base font-semibold mb-3">Product : {rec.productName}</h3>
+                <h3 className="text-lg text-orange-500 font-semibold mb-3">
+                  Title : {rec.title}
+                </h3>
+                <h3 className="text-base font-semibold mb-3">
+                  Product : {rec.productName}
+                </h3>
                 <p className="text-xs mb-3">
                   <span className="font-medium text-base">Recommended by:</span>
-                    {rec.recommenderName} ({rec.recommenderEmail})
+                  {rec.recommenderName} ({rec.recommenderEmail})
                 </p>
                 <p className="text-sm mb-5">
                   Created At: {new Date(rec.createdAt).toLocaleString()}
@@ -51,7 +60,7 @@ const AllRecommendations = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,23 +1,37 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const AboutUs = () => {
   return (
     <div className="py-28">
       {/* Hero Section */}
-      <section className="mb-16 px-6 text-center max-w-4xl mx-auto">
+      <motion.section
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+        viewport={{ once: true }}
+        className="mb-16 px-6 text-center max-w-4xl mx-auto"
+      >
         <h1 className="text-3xl md:text-4xl text-orange-500 font-bold mb-4">
           About Us
         </h1>
         <p className="text-lg md:text-xl dark:text-gray-300">
-          Welcome to <span className="font-semibold text-orange-500">QueryNest</span>, your
+          Welcome to{" "}
+          <span className="font-semibold text-orange-500">QueryNest</span>, your
           go-to platform for sharing and discovering the best product
           recommendations from real users like you. You can post your query here
           and can find your best solution.
         </p>
-      </section>
+      </motion.section>
 
       {/* Mission Section */}
-      <section className="mb-16 px-6">
+      <motion.section
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+        viewport={{ once: true }}
+        className="mb-16 px-6"
+      >
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl text-orange-500 font-bold mb-4">
             Our Mission
@@ -29,10 +43,16 @@ const AboutUs = () => {
             experiences, not just advertisements.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* How It Works Section */}
-      <section className="mb-16 px-6 max-w-6xl mx-auto">
+      <motion.section
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+        viewport={{ once: true }}
+        className="mb-16 px-6 max-w-6xl mx-auto"
+      >
         <h2 className="text-3xl md:text-4xl text-orange-500 font-bold text-center mb-12">
           How It Works
         </h2>
@@ -65,12 +85,20 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Values Section */}
-      <section className="py-12 px-6">
+      <motion.section
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+        viewport={{ once: true }}
+        className="py-12 px-6"
+      >
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl text-orange-500 font-bold mb-4">Our Values</h2>
+          <h2 className="text-3xl md:text-4xl text-orange-500 font-bold mb-4">
+            Our Values
+          </h2>
           <p className="text-lg mb-6">
             We stand by transparency, trust, and community. Our platform thrives
             on genuine connections and real product experiences.
@@ -90,7 +118,7 @@ const AboutUs = () => {
             </li>
           </ul>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

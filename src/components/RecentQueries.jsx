@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { motion } from "framer-motion";
 
 const RecentQueries = () => {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +22,11 @@ const RecentQueries = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {queries.map((query) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
             key={query._id}
             className="flex bg-base-300 flex-col p-5 sm:flex-row  rounded-lg shadow hover:shadow-md transition-all duration-300 overflow-hidden"
           >
@@ -38,10 +43,7 @@ const RecentQueries = () => {
                 <h3 className="text-lg font-semibold text-orange-500 mb-1">
                   Title : {query.queryTitle}
                 </h3>
-                <p className="font-semibold">
-                  Product:{" "}
-                  {query.productName}
-                </p>
+                <p className="font-semibold">Product: {query.productName}</p>
                 <p className="text-sm mt-1">
                   <span className="font-medium text-base">Posted by:</span>{" "}
                   {query.userName} ({query.userEmail})
@@ -60,7 +62,7 @@ const RecentQueries = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

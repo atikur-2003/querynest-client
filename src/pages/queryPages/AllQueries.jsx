@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { FaEye, FaSearch } from "react-icons/fa";
 import Loading from "../../components/Loading";
 import debounce from "lodash.debounce";
+import { motion } from "framer-motion";
 
 const AllQueries = () => {
   const axiosSecure = useAxiosSecure();
@@ -65,7 +66,11 @@ const AllQueries = () => {
           
 
           {queries.map((query) => (
-            <div
+            <motion.div 
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
               key={query._id}
               className="card bg-base-300 shadow-lg rounded-xl p-5 flex flex-col justify-between"
             >
@@ -104,7 +109,7 @@ const AllQueries = () => {
                   </button>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
