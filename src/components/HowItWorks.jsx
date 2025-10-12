@@ -8,8 +8,8 @@ const HowItWorks = () => {
   return (
     <div className="my-16">
       <motion.div
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeIn" }}
         viewport={{ once: true }}
         className="mb-16 text-center px-3 md:px-5 lg:px-0"
@@ -22,26 +22,38 @@ const HowItWorks = () => {
           some steps to do solve your problem.
         </p>
       </motion.div>
-      <motion.div
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeIn" }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-      >
-        <div className="flex flex-col gap-5 items-center mb-16 lg:mb-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
+          viewport={{ once: true }}
+          className="flex flex-col gap-5 items-center mb-16 lg:mb-0"
+        >
           <img src={step1} className="w-52" alt="" />
           <h2 className="text-lg font font-semibold">Create An Account</h2>
-        </div>
-        <div className="flex flex-col gap-5 items-center mb-16 lg:mb-0">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
+          viewport={{ once: true }}
+          className="flex flex-col gap-5 items-center mb-16 lg:mb-0"
+        >
           <img src={step2} className="w-52" alt="" />
           <h2 className="text-lg font font-semibold">Post Your Questions</h2>
-        </div>
-        <div className="flex flex-col gap-5 items-center">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
+          viewport={{ once: true }}
+          className="flex flex-col gap-5 items-center"
+        >
           <img src={step3} className="w-52" alt="" />
           <h2 className="text-lg font font-semibold">Find Your Solution</h2>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

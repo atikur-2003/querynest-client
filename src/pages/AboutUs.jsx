@@ -6,8 +6,8 @@ const AboutUs = () => {
     <div className="py-28">
       {/* Hero Section */}
       <motion.section
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeIn" }}
         viewport={{ once: true }}
         className="mb-16 px-6 text-center max-w-4xl mx-auto"
@@ -26,8 +26,8 @@ const AboutUs = () => {
 
       {/* Mission Section */}
       <motion.section
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeIn" }}
         viewport={{ once: true }}
         className="mb-16 px-6"
@@ -46,18 +46,18 @@ const AboutUs = () => {
       </motion.section>
 
       {/* How It Works Section */}
-      <motion.section
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeIn" }}
-        viewport={{ once: true }}
-        className="mb-16 px-6 max-w-6xl mx-auto"
-      >
+      <section className="mb-16 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl text-orange-500 font-bold text-center mb-12">
           How It Works
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-base-300 rounded-lg shadow-md">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
+            className="p-8 bg-base-300 rounded-lg shadow-md"
+          >
             <h3 className="text-xl text-orange-500 font-semibold mb-3">
               Ask for Recommendations
             </h3>
@@ -65,8 +65,14 @@ const AboutUs = () => {
               Post your query and let our community suggest products based on
               their personal experience.
             </p>
-          </div>
-          <div className="p-8 bg-base-300 rounded-lg shadow-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
+            className="p-8 bg-base-300 rounded-lg shadow-md"
+          >
             <h3 className="text-xl text-orange-500 font-semibold mb-3">
               Share Your Experience
             </h3>
@@ -74,8 +80,14 @@ const AboutUs = () => {
               Have a favorite product? Recommend it to others and help them make
               better choices.
             </p>
-          </div>
-          <div className="p-8 bg-base-300 rounded-lg shadow-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
+            className="p-8 bg-base-300 rounded-lg shadow-md"
+          >
             <h3 className="text-xl text-orange-500 font-semibold mb-3">
               Make Informed Decisions
             </h3>
@@ -83,14 +95,14 @@ const AboutUs = () => {
               Browse through recommendations, compare options, and pick what’s
               best for you.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Values Section */}
       <motion.section
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeIn" }}
         viewport={{ once: true }}
         className="py-12 px-6"

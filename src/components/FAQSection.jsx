@@ -1,8 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const FAQSection = () => {
   return (
-    <div className="py-16">
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeIn" }}
+      viewport={{ once: true }}
+      className="py-16"
+    >
       <div className="text-center mb-7">
         <h1 className="text-2xl md:text-3xl text-orange-500 font-bold">
           Frequently Asked Section
@@ -64,7 +71,7 @@ const FAQSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
