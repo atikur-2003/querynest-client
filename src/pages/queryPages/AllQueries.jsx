@@ -52,7 +52,7 @@ const AllQueries = () => {
           <input
             type="text"
             placeholder="Search by Product Name"
-            className="input input-bordered w-full pr-10"
+            className="input input-bordered w-full pr-10 focus:outline-none focus:border-orange-500"
             onChange={(e) => handleSearch(e.target.value)}
           />
           <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />

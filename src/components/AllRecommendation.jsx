@@ -12,15 +12,15 @@ const AllRecommendations = () => {
       .get("/recommendations")
       .then((res) => setRecommendations(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [axiosSecure]);
 
   return (
-    <div className="px-4 my-20 max-w-6xl mx-auto">
+    <div className="my-20 px-4 lg:px-10 py-6">
       <h2 className="text-3xl text-orange-500 font-bold mb-10 text-center">
         All Recommendations
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {recommendations.map((rec) => (
+        {recommendations.slice(0,4).map((rec) => (
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}

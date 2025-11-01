@@ -2,14 +2,13 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
-// import axios from "axios";
 
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleGoogleSignin = () => {
+  const handleGoogleSignin = () => { 
     googleSignIn()
       .then( async(result) => {
         const user = result.user;

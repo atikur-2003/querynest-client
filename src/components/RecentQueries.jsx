@@ -12,7 +12,7 @@ const RecentQueries = () => {
       .get("/recent-queries")
       .then((res) => setQueries(res.data))
       .catch((err) => console.error("Error fetching recent queries", err));
-  }, []);
+  }, [axiosSecure]);
 
   return (
     <div className="my-20 px-4 lg:px-10 py-6">

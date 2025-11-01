@@ -34,6 +34,8 @@ const MyQueries = () => {
     fetchQueries();
   }, [user?.email, axiosSecure]);
 
+
+  // handle delete query function
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -62,10 +64,10 @@ const MyQueries = () => {
   if (loading) return <Loading></Loading>;
 
   return (
-    <div className="min-h-screen  px-4 md:px-10 py-26 bg-base-100">
+    <div className="min-h-screen  px-4 md:px-10 py-20 bg-base-100">
       {/* Banner */}
-      <div className="bg-gradient-to-r from-[#F26B21] to-orange-500 text-white rounded-xl p-6 md:p-10 text-center shadow-md mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">My Queries</h2>
+      <div className="rounded-xl p-6 md:p-10 text-center mb-10">
+        <h2 className="text-3xl text-orange-500 md:text-4xl font-bold mb-4">My Queries</h2>
         <Link to="/add-query">
           <button className="btn border border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white cursor-pointer">
             Add Queries
@@ -77,11 +79,7 @@ const MyQueries = () => {
       {queries.length === 0 ? (
         <div className="text-center mt-16">
           <p className="text-xl font-medium mb-4">No Queries Found.</p>
-          <Link to="/add-query">
-            <button className="btn border border-orange-500 text-orange-500  hover:bg-orange-500 hover:text-white cursor-pointer">
-              Add Your First Query
-            </button>
-          </Link>
+          
         </div>
       ) : (
         // Query Cards Grid
