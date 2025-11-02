@@ -21,7 +21,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         Swal.fire(error);
@@ -76,7 +76,7 @@ const Navbar = () => {
             }`
           }
         >
-          Recommendations
+          Recommendations For Me
         </NavLink>
       </li>
 

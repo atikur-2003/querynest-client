@@ -6,6 +6,7 @@ const RecommendationsForMe = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [recommendations, setRecommendations] = useState([]);
+  
 
   useEffect(() => {
     if (user?.email) {
