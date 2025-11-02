@@ -21,7 +21,7 @@ const RecentQueries = () => {
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {queries.map((query) => (
+        {queries.slice(0,4).map((query) => (
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,6 +64,11 @@ const RecentQueries = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+      <div className="mt-14 text-center">
+        <Link to='/queries' className="px-6 py-2 text-xl font-semibold border border-orange-500 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-500">
+        See All
+        </Link>
       </div>
     </div>
   );

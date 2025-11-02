@@ -30,26 +30,80 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li className="text-sm font-medium text-orange-500">
-        <NavLink to="/">Home</NavLink>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `px-3 py-2 text-sm font-semibold ${
+              isActive ? "text-orange-500 font-semibold" : ""
+            }`
+          }
+        >
+          Home
+        </NavLink>
       </li>
-      <li className="text-sm font-medium text-orange-500">
-        <NavLink to="/queries">Queries</NavLink>
+      <li>
+        <NavLink
+          to="/queries"
+          className={({ isActive }) =>
+            `px-3 py-2 text-sm font-semibold ${
+              isActive ? "text-orange-500 font-semibold" : ""
+            }`
+          }
+        >
+          Queries
+        </NavLink>
       </li>
 
-      <li className="text-sm font-medium text-orange-500">
-        <NavLink to="/my-queries">My Queries</NavLink>
+      <li>
+        <NavLink
+          to="/my-queries"
+          className={({ isActive }) =>
+            `px-3 py-2 text-sm font-semibold ${
+              isActive ? "text-orange-500 font-semibold" : ""
+            }`
+          }
+        >
+          My Queries
+        </NavLink>
       </li>
-      <li className="text-sm font-medium text-orange-500">
-        <NavLink to="/recommendation-for-me">Recommendations</NavLink>
+      <li>
+        <NavLink
+          to="/recommendation-for-me"
+          className={({ isActive }) =>
+            `px-3 py-2 text-sm font-semibold ${
+              isActive ? "text-orange-500 font-semibold" : ""
+            }`
+          }
+        >
+          Recommendations
+        </NavLink>
       </li>
 
-      <li className="text-sm font-medium text-orange-500">
-        <NavLink to="/my-recommendations">My recommendations</NavLink>
+      <li>
+        <NavLink
+          to="/my-recommendations"
+          className={({ isActive }) =>
+            `px-3 py-2 text-sm font-semibold ${
+              isActive ? "text-orange-500 font-semibold" : ""
+            }`
+          }
+        >
+          My recommendations
+        </NavLink>
       </li>
 
-      <li className="text-sm font-medium text-orange-500">
-        <NavLink to="/about-us">About Us</NavLink>
+      <li>
+        <NavLink
+          to="/about-us"
+          className={({ isActive }) =>
+            `px-3 py-2 text-sm font-semibold ${
+              isActive ? "text-orange-500 font-semibold" : ""
+            }`
+          }
+        >
+          About Us
+        </NavLink>
       </li>
     </>
   );
@@ -77,7 +131,7 @@ const Navbar = () => {
         </span>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className=" menu-horizontal px-1">{navLinks}</ul>
       </div>
 
       {/* navbar end */}

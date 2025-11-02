@@ -3,7 +3,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 
-const AllRecommendations = () => {
+const AllUserRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
   const axiosSecure = useAxiosSecure();
 
@@ -15,12 +15,12 @@ const AllRecommendations = () => {
   }, [axiosSecure]);
 
   return (
-    <div className="my-20 px-4 lg:px-10 py-6">
+    <div className="my-28 px-4 lg:px-10 py-6">
       <h2 className="text-3xl text-orange-500 font-bold mb-10 text-center">
-        All Recommendations
+        All Recommendations by Users
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {recommendations.slice(0, 4).map((rec) => (
+        {recommendations.map((rec) => (
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -63,16 +63,8 @@ const AllRecommendations = () => {
           </motion.div>
         ))}
       </div>
-      <div className="mt-14 text-center">
-        <Link
-          to="/all-user-recommendations"
-          className="px-6 py-2 text-xl font-semibold border border-orange-500 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-500"
-        >
-          See All
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default AllRecommendations;
+export default AllUserRecommendations;

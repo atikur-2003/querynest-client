@@ -15,6 +15,7 @@ import RecommendationsForMe from "../pages/queryPages/RecommendationsForMe";
 import ErrorPage from "../pages/ErrorPage";
 import AboutUs from "../pages/AboutUs";
 import RecommendationDetails from "../pages/RecommendationDetails";
+import AllUserRecommendations from "../components/AllUserRecommendations";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
             {
                 path: 'queries',
                 Component: AllQueries
+            },
+            {
+                path:'all-user-recommendations',
+                Component: AllUserRecommendations
             },
             {
                 path:'about-us',
