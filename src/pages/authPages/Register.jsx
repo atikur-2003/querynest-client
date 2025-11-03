@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { FaEyeSlash, FaGoogle, FaRegEye } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "./SocialLogin";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, setUser, updateUser } = useAuth();
+  const [profilePic, setProfilePic] = useState("");
+  const location = useLocation();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -15,7 +18,6 @@ const Register = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -34,10 +36,17 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        updateUser({ displayName: name, photoURL: photo })
+        updateUser({ displayName: name, photoURL: profilePic })
           .then(() => {
-            setUser({ ...user, displayName: name, photoURL: photo });
-            navigate("/");
+            setUser({ ...user, displayName: name, photoURL: profilePic });
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Register Successful",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(`${location.state ? location.state : "/"}`);
           })
           .catch((error) => {
             Swal.fire({
@@ -52,6 +61,22 @@ const Register = () => {
         const errorMessage = error.message;
         alert(errorMessage);
       });
+  };
+
+  // Image upload handler
+  const handleUploadImage = async (e) => {
+    const image = e.target.files[0];
+
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const imageHostingKey = import.meta.env.VITE_IMGBB_API_KEY;
+    const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+
+    const res = await axios.post(imageHostingUrl, formData);
+    console.log(res.data);
+    const imageUrl = res.data.data.display_url;
+    setProfilePic(imageUrl);
   };
 
   return (
@@ -74,7 +99,8 @@ const Register = () => {
 
             <label className="label text-lg font-medium">Photo URL</label>
             <input
-              type="text"
+              onChange={handleUploadImage}
+              type="file"
               name="photo"
               className="input"
               placeholder="Enter Phot URL"

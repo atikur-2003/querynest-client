@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const AddQuery = () => {
   const { user } = useAuth();
@@ -25,6 +26,11 @@ const AddQuery = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData.imageUrl) {
+      Swal.fire("Error", "Please upload a product image", "error");
+      return;
+    }
+
     const queryData = {
       ...formData,
       userEmail: user.email,
@@ -37,7 +43,13 @@ const AddQuery = () => {
     try {
       const res = await axiosSecure.post("/queries", queryData);
       if (res.data.insertedId) {
-        Swal.fire("Success!", "Query added successfully", "success");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Query Added Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/my-queries");
       }
     } catch (err) {
@@ -46,10 +58,38 @@ const AddQuery = () => {
     }
   };
 
+  const handleUploadImage = async (e) => {
+    const image = e.target.files[0];
+    if (!image) return;
+
+    const uploadFormData = new FormData();
+    uploadFormData.append("image", image);
+
+    const imageHostingKey = import.meta.env.VITE_IMGBB_API_KEY;
+
+    const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+
+    try {
+      const res = await axios.post(imageHostingUrl, uploadFormData);
+
+      if (res.data?.success) {
+        const imageUrl = res.data.data.display_url;
+        setFormData((prev) => ({ ...prev, imageUrl }));
+      } else {
+        throw new Error("Upload failed");
+      }
+    } catch (err) {
+      console.error("Image upload failed:", err);
+      Swal.fire("Error", "Failed to host image. Please try again.", "error");
+    }
+  };
+
   return (
     <div className="min-h-screen px-4 py-26">
       <div className="max-w-3xl mx-auto bg-base-200 p-8 rounded-xl shadow-xl">
-        <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">Add a New Query</h2>
+        <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">
+          Add a New Query
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block font-medium">Product Name</label>
@@ -76,14 +116,11 @@ const AddQuery = () => {
           </div>
 
           <div>
-            <label className="block font-medium">Product Image URL</label>
+            <label className="block font-medium">Product Image</label>
             <input
-              type="text"
-              name="imageUrl"
-              value={formData.imageUrl}
-              onChange={handleChange}
-              className="input input-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
-              required
+              type="file"
+              onChange={handleUploadImage}
+              className="file-input file-input-bordered w-full mt-1"
             />
           </div>
 
@@ -114,7 +151,10 @@ const AddQuery = () => {
           </div>
 
           <div className="text-center pt-4">
-            <button type="submit" className="btn border border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white cursor-pointer px-6 text-lg">
+            <button
+              type="submit"
+              className="btn border border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white px-6 text-lg"
+            >
               Add Query
             </button>
           </div>

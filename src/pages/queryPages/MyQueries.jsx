@@ -50,7 +50,13 @@ const MyQueries = () => {
         if (result.isConfirmed) {
           axiosSecure.delete(`/queries/${id}`).then((res) => {
             if (res.data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your query has been deleted.", "success");
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Query Deleted Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
               setQueries((prev) => prev.filter((query) => query._id !== id));
             }
           });
