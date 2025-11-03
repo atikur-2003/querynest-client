@@ -47,8 +47,8 @@ const AddQuery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-26">
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl">
+    <div className="min-h-screen px-4 py-26">
+      <div className="max-w-3xl mx-auto bg-base-200 p-8 rounded-xl shadow-xl">
         <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">Add a New Query</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -58,7 +58,7 @@ const AddQuery = () => {
               name="productName"
               value={formData.productName}
               onChange={handleChange}
-              className="input input-bordered w-full mt-1"
+              className="input input-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
               required
             />
           </div>
@@ -70,7 +70,7 @@ const AddQuery = () => {
               name="productBrand"
               value={formData.productBrand}
               onChange={handleChange}
-              className="input input-bordered w-full mt-1"
+              className="input input-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
               required
             />
           </div>
@@ -82,7 +82,7 @@ const AddQuery = () => {
               name="imageUrl"
               value={formData.imageUrl}
               onChange={handleChange}
-              className="input input-bordered w-full mt-1"
+              className="input input-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const AddQuery = () => {
               placeholder="e.g. Is there any better product with the same quality?"
               value={formData.queryTitle}
               onChange={handleChange}
-              className="input input-bordered w-full mt-1"
+              className="input input-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
               required
             />
           </div>
@@ -107,7 +107,7 @@ const AddQuery = () => {
               rows="5"
               value={formData.reason}
               onChange={handleChange}
-              className="textarea textarea-bordered w-full mt-1"
+              className="textarea textarea-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
               placeholder="What is the reason of your query?"
               required
             ></textarea>

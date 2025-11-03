@@ -12,7 +12,7 @@ const HowItWorks = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeIn" }}
         viewport={{ once: true }}
-        className="mb-16 text-center px-3 md:px-5 lg:px-0"
+        className="mb-16 text-center px-3 md:px-10 lg:px-0"
       >
         <h1 className="text-orange-500 text-3xl md:text-4xl font-bold mb-4">
           How It Works

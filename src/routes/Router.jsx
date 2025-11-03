@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/recommendations/:id",
-                element: <PrivateRoute><RecommendationDetails></RecommendationDetails></PrivateRoute>
+                element: <RecommendationDetails></RecommendationDetails>
             }
 
         ]

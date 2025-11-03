@@ -15,7 +15,7 @@ const AllUserRecommendations = () => {
   }, [axiosSecure]);
 
   return (
-    <div className="my-28 px-4 lg:px-10 py-6">
+    <div className="py-28 px-4 md:px-10">
       <h2 className="text-3xl text-orange-500 font-bold mb-10 text-center">
         All Recommendations by Users
       </h2>

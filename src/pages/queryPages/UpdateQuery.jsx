@@ -40,7 +40,13 @@ const UpdateQuery = () => {
     try {
       const res = await axiosSecure.put(`/queries/${id}`, updatedQuery);
       if (res.data.modifiedCount > 0) {
-        Swal.fire("Query updated successfully!");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Query Updated Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/my-queries");
       } else {
         Swal.fire("No changes made.");
@@ -55,51 +61,68 @@ const UpdateQuery = () => {
 
   return (
     <div className="max-w-4xl mx-auto py-20 px-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">Update Your Query</h2>
+      <h2 className="text-2xl text-orange-500 font-bold mb-6 text-center">
+        Update Your Query
+      </h2>
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 shadow-md rounded-xl"
+        className="bg-base-200 p-6 shadow-md rounded-xl space-y-6"
       >
-        <input
-          type="text"
-          name="productName"
-          defaultValue={queryData.productName}
-          className="input input-bordered w-full"
-          placeholder="Product Name"
-          required
-        />
-        <input
-          type="text"
-          name="productBrand"
-          defaultValue={queryData.productBrand}
-          className="input input-bordered w-full"
-          placeholder="Product Brand"
-          required
-        />
-        <input
-          type="text"
-          name="productImage"
-          defaultValue={queryData.productImage}
-          className="input input-bordered w-full"
-          placeholder="Product Image URL"
-          required
-        />
-        <input
-          type="text"
-          name="queryTitle"
-          defaultValue={queryData.queryTitle}
-          className="input input-bordered w-full"
-          placeholder="Query Title"
-          required
-        />
-        <textarea
-          name="reason"
-          defaultValue={queryData.reason}
-          className="textarea textarea-bordered w-full"
-          placeholder="Boycotting Reason Details"
-          rows={4}
-          required
-        />
+        <div>
+          <label className="block font-medium">Product Name</label>
+          <input
+            type="text"
+            name="productName"
+            defaultValue={queryData.productName}
+            className="input input-bordered w-full focus:outline-none focus:border-orange-500"
+            placeholder="Product Name"
+            required
+          />
+        </div>
+        <div>
+          <label className="block font-medium">Product Brand</label>
+          <input
+            type="text"
+            name="productBrand"
+            defaultValue={queryData.productBrand}
+            className="input input-bordered w-full focus:outline-none focus:border-orange-500"
+            placeholder="Product Brand"
+            required
+          />
+        </div>
+        <div>
+          <label className="block font-medium">Product Image</label>
+          <input
+            type="text"
+            name="productImage"
+            defaultValue={queryData.imageUrl}
+            className="input input-bordered w-full focus:outline-none focus:border-orange-500"
+            placeholder="Product Image URL"
+            required
+          />
+        </div>
+        <div>
+          <label className="block font-medium">Query Title</label>
+          <input
+            type="text"
+            name="queryTitle"
+            defaultValue={queryData.queryTitle}
+            className="input input-bordered w-full focus:outline-none focus:border-orange-500"
+            placeholder="Query Title"
+            required
+          />
+        </div>
+        <div>
+          <label className="block font-medium">Query Reason</label>
+          <textarea
+            name="reason"
+            defaultValue={queryData.reason}
+            className="textarea textarea-bordered w-full focus:outline-none focus:border-orange-500"
+            placeholder="Boycotting Reason Details"
+            rows={4}
+            required
+          />
+        </div>
         <button
           type="submit"
           className="btn border border-orange-500 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white w-full"

@@ -197,7 +197,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="User"
-                className="w-10 h-10 rounded-full cursor-pointer"
+                className="w-10 h-10 rounded-full cursor-pointer border border-orange-500"
               />
             </Menu.Button>
 
