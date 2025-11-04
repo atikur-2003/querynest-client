@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
 
             {
                 path: 'my-queries',
-                element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>
+                element:<MyQueries></MyQueries>
             },
             {
                 path: 'add-query',
@@ -57,11 +57,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'my-recommendations',
-                element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
+                element: <MyRecommendations></MyRecommendations>
             },
             {
                 path: 'recommendation-for-me',
-                element: <PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
+                element: <RecommendationsForMe></RecommendationsForMe>
             },
             {
                 path: "/recommendations/:id",

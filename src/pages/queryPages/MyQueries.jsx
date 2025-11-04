@@ -14,7 +14,7 @@ const MyQueries = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    if (!user?.email) return;
+    // if (!user?.email) return;
 
     const fetchQueries = async () => {
       try {

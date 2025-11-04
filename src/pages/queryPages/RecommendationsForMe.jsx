@@ -20,7 +20,7 @@ const RecommendationsForMe = () => {
   }, [user?.email, axiosSecure]);
 
   return (
-    <div className="max-w-6xl mx-auto pt-30 pb-36">
+    <div className="min-h-screen px-4 md:px-10 pt-30 pb-36">
       <h2 className="text-xl md:text-3xl font-bold text-center  text-orange-500 mb-10">
         Recommendations for My Queries
       </h2>

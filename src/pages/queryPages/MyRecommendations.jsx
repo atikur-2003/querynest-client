@@ -22,7 +22,8 @@ const MyRecommendations = () => {
       }
     };
 
-    if (user?.email) fetchRecommendations();
+    // if (user?.email) 
+    fetchRecommendations();
   }, [user, axiosSecure]);
 
   const handleDelete = async (id, queryId) => {
