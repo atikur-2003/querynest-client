@@ -120,7 +120,7 @@ const AddQuery = () => {
             <input
               type="file"
               onChange={handleUploadImage}
-              className="file-input file-input-bordered w-full mt-1"
+              className="file-input file-input-bordered w-full mt-1 focus:outline-none focus:border-orange-500"
             />
           </div>
 

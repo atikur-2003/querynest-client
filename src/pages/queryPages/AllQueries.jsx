@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router";
 import { FaEye, FaSearch } from "react-icons/fa";
@@ -10,30 +10,46 @@ const AllQueries = () => {
   const axiosSecure = useAxiosSecure();
   const [queries, setQueries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
-  const fetchQueries = async (searchText = "") => {
+  // Fetch queries based on search text
+  const fetchQueries = async (text = "") => {
     try {
       setLoading(true);
-      const res = await axiosSecure.get(`/queries/search?name=${searchText}`);
+      const res = await axiosSecure.get(`/queries/search?name=${text.trim()}`);
       const sorted = res.data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
       setQueries(sorted);
     } catch (error) {
       console.error("Failed to load queries:", error);
+      setQueries([]);
     } finally {
       setLoading(false);
     }
   };
 
+  // Load all queries on mount
   useEffect(() => {
     fetchQueries();
   }, []);
 
-  // Debounced Search Handler
-  const handleSearch = debounce((text) => {
-    fetchQueries(text);
-  }, 500);
+  // Debounced search function
+  const debouncedSearch = useCallback(
+    debounce((text) => {
+      fetchQueries(text);
+    }, 500),
+    []
+  );
+
+  // Handle input change
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchText(value);
+    debouncedSearch(value); 
+  };
+
+  
 
   if (loading) return <Loading />;
 
@@ -53,7 +69,8 @@ const AllQueries = () => {
             type="text"
             placeholder="Search by Product Name"
             className="input input-bordered w-full pr-10 focus:outline-none focus:border-orange-500"
-            onChange={(e) => handleSearch(e.target.value)}
+            value={searchText}
+            onChange={handleSearchChange}
           />
           <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
         </div>
@@ -63,14 +80,12 @@ const AllQueries = () => {
         <p className="text-center text-lg font-semibold">No queries found.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-
           {queries.map((query) => (
-            <motion.div 
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeIn" }}
-            viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeIn" }}
+              viewport={{ once: true }}
               key={query._id}
               className="card bg-base-300 shadow-lg rounded-xl p-5 flex flex-col justify-between"
             >
@@ -82,9 +97,7 @@ const AllQueries = () => {
                   <span className="font-semibold">Product:</span>{" "}
                   {query.productName} ({query.productBrand})
                 </p>
-                <p className="text-sm mb-4">
-                  {query.reason?.slice(0, 100)}...
-                </p>
+                <p className="text-sm mb-4">{query.reason?.slice(0, 100)}...</p>
                 <p className="text-sm mb-4">
                   Total Recommendation: {query.recommendationCount}
                 </p>

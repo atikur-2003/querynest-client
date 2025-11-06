@@ -8,9 +8,9 @@ const HowItWorks = () => {
   return (
     <div className="my-16">
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: -80 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeIn" }}
+        transition={{ duration: 1, ease: "easeIn" }}
         viewport={{ once: true }}
         className="mb-16 text-center px-3 md:px-10 lg:px-0"
       >
@@ -26,7 +26,7 @@ const HowItWorks = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn", delay:0.2 }}
           viewport={{ once: true }}
           className="flex flex-col gap-5 items-center mb-16 lg:mb-0"
         >
@@ -36,7 +36,7 @@ const HowItWorks = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn", delay:0.4 }}
           viewport={{ once: true }}
           className="flex flex-col gap-5 items-center mb-16 lg:mb-0"
         >
@@ -46,7 +46,7 @@ const HowItWorks = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn", delay:0.6 }}
           viewport={{ once: true }}
           className="flex flex-col gap-5 items-center"
         >
