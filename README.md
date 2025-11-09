@@ -1,12 +1,62 @@
-# React + Vite
+# QueryNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## <img src="https://i.ibb.co.com/5gXYNRz1/Query-Nest.png">
 
-Currently, two official plugins are available:
+Welcome to **QueryNest**,QueryNest is a platform where user can post a query about their problem and can find a solution. User can create a account and post a query. They also can reccommend a solution to others query.
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Overview
 
-## Expanding the ESLint configuration
+| Detail                 | Information                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| **GitHub Server site** | [QueryNest-server](https://github.com/atikur-2003/querynest-server)         |
+| **Live Site client**   | [QueryNest-firebase](https://querynest-aa129.web.app/)                                            |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Site
+
+[🔗 Deployed App](#) _(https://querynest-aa129.web.app/)_
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js, Tailwind CSS, daisyUi
+- **Backend**:  Express.js, Mongodb
+- **Routing**: React Router;
+- **State Management**: React Context API (AuthProvider)
+- **Toast Notifications**: Sweetalert2
+- **Deployment**: GitHub Pages / Firebase
+- **Build Tool**: Vite
+---
+
+## 🚀 Features
+
+### 🔐 Authentication & Security
+
+- **Email/Password Login**: Secure user authentication via Firebase.
+- **Google Sign-In**: Quick access using Google accounts.
+- **Protected Routes**: Restricts access to sensitive pages.
+
+### 📄 Additional Pages
+
+- **queries**:user can see all queries and can recommend an alternative solution.
+- **my-queries**:user can add and update query.
+- **recommendations**:user can see all recommendations.
+- **about page**:about us page.
+- **FAQ**: Frequently Asked Questions.
+
+### 🎨 UI/UX Enhancements
+
+- **Responsive Design**: Optimized for various devices.
+- **Tailwind CSS & DaisyUI**: Utilized for styling and component design.
+- **Lottie Animations**: Engaging animations for better user experience.
+- **Swiper**: Interactive sliders for showcasing content.
+
+### 🎨How to run locally
+
+- come to the github repo
+- copy the repo link and clone it in your pc
+- then run the project using npm run dev command
+- it will generate a link. copy and paste the link in browser
+
+---
