@@ -1,6 +1,6 @@
 # QueryNest
 
-## <img src="https://i.ibb.co.com/5gXYNRz1/Query-Nest.png">
+## <img src="https://i.postimg.cc/P5M118Ty/Query-Nest.png">
 
 Welcome to **QueryNest**,QueryNest is a platform where user can post a query about their problem and can find a solution. User can create a account and post a query. They also can reccommend a solution to others query.
 ---
