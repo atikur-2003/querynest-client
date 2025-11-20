@@ -3,7 +3,6 @@
 ## <img src="https://i.postimg.cc/P5M118Ty/Query-Nest.png">
 
 Welcome to **QueryNest**,QueryNest is a platform where user can post a query about their problem and can find a solution. User can create a account and post a query. They also can reccommend a solution to others query.
----
 
 ## 📌 Project Overview
 
@@ -16,7 +15,6 @@ Welcome to **QueryNest**,QueryNest is a platform where user can post a query abo
 
 [🔗 Deployed App](#) _(https://querynest-aa129.web.app/)_
 
----
 
 ## 🛠️ Tech Stack
 
@@ -52,11 +50,10 @@ Welcome to **QueryNest**,QueryNest is a platform where user can post a query abo
 - **Lottie Animations**: Engaging animations for better user experience.
 - **Swiper**: Interactive sliders for showcasing content.
 
-### 🎨How to run locally
+### How to run locally
 
 - come to the github repo
 - copy the repo link and clone it in your pc
+- install all dependencies using npm i command
 - then run the project using npm run dev command
 - it will generate a link. copy and paste the link in browser
-
----
