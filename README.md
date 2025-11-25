@@ -25,7 +25,6 @@ Welcome to **QueryNest**,QueryNest is a platform where user can post a query abo
 - **Toast Notifications**: Sweetalert2
 - **Deployment**: GitHub Pages / Firebase
 - **Build Tool**: Vite
----
 
 ## 🚀 Features
 
